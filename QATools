@@ -1,0 +1,189 @@
+import pyautogui
+import speedtest
+import time
+
+speed = speedtest.Speedtest()
+auto  = pyautogui
+auto.FAILSAFE = True
+
+
+def header():
+    print('#######################################')
+    print('############    QA    ############')
+    print('    Automated web interface test case  ')
+    print()
+    print('       Author : Rishaldy Prisly        ')
+    print('  Github : github.com/rishaldyprisly   ')
+    print('         Assesment Purpose Only        ')
+    print(' Using this tool for real QA activity  ')
+    print('Is NOT RECOMENDED. Use selenium instead')
+    print('#######################################')
+
+def con():
+    print()
+    print('- Checking Internet Connection')
+    dw = round(speed.download() / 8000000, 2)
+    up = round(speed.upload() / 8000000, 2)
+    print('Download speed : ' + str(dw) + 'Mb')
+    print('Upload speed : ' + str(up) + 'mb')
+    print()
+    
+def order_menu():
+    auto.click(1280, 130)
+    time.sleep(1.5)
+    print('- Top menu click')
+
+    auto.click(630, 210)
+    time.sleep(3)
+    print('- Order menu click')
+
+def set_order():
+    auto.click(800, 330)
+    time.sleep(1)
+    print('- Option delivery click')
+
+    auto.click(800, 430)
+    time.sleep(1)
+    print('- Select delivery click')
+    
+    auto.click(1000, 330)
+    time.sleep(1)
+    print('- Option pickup click')
+
+    auto.click(1000, 430)
+    time.sleep(1)
+    print('- Select delivery click')
+
+    auto.click(800, 430)
+    time.sleep(1)
+    print('- Choose date click')
+
+    auto.click(820,630)
+    time.sleep(1)
+    print('- Set start period click')
+
+    auto.click(850, 630)
+    time.sleep(1)
+    print('- Set end period click')
+
+    auto.scroll(-50)
+    time.sleep(1)
+    print('- Scroll down a bit')
+
+    auto.click(1150, 740)
+    time.sleep(1)
+    print('- Set delivery time click')
+
+    auto.click(650, 500)
+    time.sleep(1)
+    print('- Choose delivery time click')
+
+    auto.click(650, 550)
+    time.sleep(1)
+    print('- Set pickup time click')
+    
+    auto.scroll(50)
+    time.sleep(1)
+
+    auto.click(950, 490)
+    time.sleep(1)
+
+    auto.click(950, 510)
+    time.sleep(1)
+    auto.click(950, 510)
+    time.sleep(1)
+    print('- Search Button click')
+
+def chose_product():
+#def check_order():
+    auto.click(650, 500)
+    print('- Select product click')
+    time.sleep(1)
+
+    auto.scroll(-50)
+    time.sleep(1)
+    auto.scroll(-150)
+    time.sleep(1)
+    auto.scroll(-50)
+    time.sleep(0.2)
+    auto.scroll(-50)
+    time.sleep(1)
+    
+    print('- Scrolling product info')
+    auto.click(1100, 720)
+    time.sleep(3)
+    print('- Book button click')
+
+def checkout():
+    auto.click(950, 540)
+    time.sleep(1)
+    auto.write('ID 9988')
+    print('- Flight number click and fill')
+    auto.press('TAB')
+    print('- Move to the next textbox with TAB')
+    auto.press('TAB')
+    print('- Move to the next textbox with TAB')
+    auto.press('TAB')
+    print('- Move to the next textbox with TAB')
+    auto.write('In front of caffeetaria')
+    print('- Filling Notes')
+    auto.press('TAB')
+    print('- Move to book button with TAB')
+    auto.press('ENTER')
+    print('- Submit with enter')
+    time.sleep(3)
+
+def individual_form():
+    auto.click(950, 340)
+    auto.write('Rishaldy')
+    print('- Filling name')
+    time.sleep(1)
+    auto.press('TAB')
+    print('- Move cursor by TAB')
+    auto.write('random@gmail.com')
+    print('- Filling email')
+    time.sleep(1)
+    auto.press('TAB')
+    print('- Move cursor by TAB')
+    auto.write('+62')
+    auto.press('TAB')
+    print('- Move cursor by TAB')
+    time.sleep(1.5)
+    auto.press('TAB')
+    print('- Move cursor by TAB')
+    auto.write('8561947593')
+    auto.press('TAB')
+    print('- Move cursor by TAB')
+    auto.write('password')
+    auto.scroll(-450)
+    time.sleep(1)
+    auto.click(920, 560)
+    time.sleep(2)
+    auto.click(800, 320)
+    auto.press('ENTER')
+    time.sleep(1)
+    auto.click(800, 690)
+    time.sleep(1)
+    auto.write('Indone', interval = 0.3)
+    time.sleep(2)
+    auto.press('TAB')
+    print('- Move cursor by TAB')
+    time.sleep(1)
+    auto.press('TAB')
+    print('- Move cursor by TAB')
+    auto.write('Tangerang')
+    time.sleep(1)
+    auto.press('TAB')
+    print('- Move cursor by TAB')
+    auto.click(1100, 720)
+    time.sleep(3)
+
+
+
+header()
+con()
+order_menu()
+set_order()
+chose_product()
+checkout()
+individual_form()
